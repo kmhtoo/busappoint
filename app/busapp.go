@@ -8,24 +8,22 @@ import (
 	"time"
 )
 
-const (
-	MongoDBHosts = "localhost:27027"
-	AuthDatabase = "busapp"
-	AuthUserName = ""
-	AuthPassword = ""
-	TestDatabase = "busapp_test"
-)
-
 type BusApp struct {
 }
 
 func (app *BusApp) GetDBSession() *mgo.Session {
+	mongoDbHost := ParamString("db.host")
+	confTimeout := ParamInt("db.timeout")
+	timeout := time.Duration(confTimeout)
+	authDatabase := ParamString("db.name")
+	authUsername := ParamString("db.username")
+	authPassword := ParamString("db.password")
 	mongoDBDailInfo := &mgo.DialInfo{
-		Addrs:    []string{MongoDBHosts},
-		Timeout:  60 * time.Second,
-		Database: AuthDatabase,
-		Username: AuthUserName,
-		Password: AuthPassword,
+		Addrs:    []string{mongoDbHost},
+		Timeout:  timeout * time.Second,
+		Database: authDatabase,
+		Username: authUsername,
+		Password: authPassword,
 	}
 
 	mongoSession, err := mgo.DialWithInfo(mongoDBDailInfo)

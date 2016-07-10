@@ -1,0 +1,33 @@
+{
+	"app":{
+		"name":"busappoint",	
+		"secret":"5GugZLbrkmTC66uYC8S3B6X3HLxqWWdnzDQG3AbGLEPA3BUsAQG7M2433wG4G2",
+		"port":80
+	},
+	"email":{
+		"host":"smtp.gmail.com",
+		"port":"587",
+		"account":"test@gmail.com",
+		"password":"123456"
+	},
+	"db":{
+		"host":"localhost:27017",
+		"name":"bus_db",
+		"username":"",
+		"password":"",
+		"timeout":60
+	},
+	"oauth":{
+		"google":{
+			"key":"",
+			"secret":"",
+			"callback":""
+		},
+		"facebook":{
+			"key":"",
+			"secret":"",
+			"callback":""
+		}
+	}
+	
+}

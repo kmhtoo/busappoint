@@ -2,6 +2,7 @@ package app
 
 import (
 	"github.com/kataras/iris"
+	"github.com/kmhtoo/busappoint/app"
 	"github.com/kmhtoo/busappoint/firm"
 
 	acc "github.com/kmhtoo/busappoint/account"
@@ -70,6 +71,6 @@ func (r Router) Init() {
 		ctx.JSON(iris.StatusOK, iris.Map{"data": "This fake data came from the db on the server and I modified it."})
 	})
 
-	server.Listen(":8080")
+	server.Listen(":" + app.ParamString("app.port"))
 
 }
