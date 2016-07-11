@@ -2,9 +2,7 @@ package app
 
 import (
 	"labix.org/v2/mgo"
-	_ "labix.org/v2/mgo/bson"
 	"log"
-	_ "sync"
 	"time"
 )
 
@@ -18,6 +16,7 @@ func (app *BusApp) GetDBSession() *mgo.Session {
 	authDatabase := ParamString("db.name")
 	authUsername := ParamString("db.username")
 	authPassword := ParamString("db.password")
+
 	mongoDBDailInfo := &mgo.DialInfo{
 		Addrs:    []string{mongoDbHost},
 		Timeout:  timeout * time.Second,
